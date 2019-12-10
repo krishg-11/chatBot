@@ -10,7 +10,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -18,10 +17,12 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity {
-    private FirebaseAnalytics mFirebaseAnalytics;
+
     public TextView id;
     public TextView name;
     public Button button;
+    DatabaseReference myRef;
+    FirebaseDatabase database;
 
 
     @Override
@@ -32,16 +33,18 @@ public class MainActivity extends AppCompatActivity {
         name = findViewById(R.id.name);
         button = findViewById(R.id.button);
 
-        mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
-        Bundle bundle = new Bundle();
-        bundle.putString(FirebaseAnalytics.Param.ITEM_ID, id.getText().toString());
-        bundle.putString(FirebaseAnalytics.Param.ITEM_NAME, name.getText().toString());
-        bundle.putString(FirebaseAnalytics.Param.CONTENT_TYPE, "image");
-        mFirebaseAnalytics.logEvent(FirebaseAnalytics.Event.SELECT_CONTENT, bundle);
+        database = FirebaseDatabase.getInstance();
+        myRef = database.getReference("Bob");
 
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("message");
-        myRef.setValue("Hello, World!");
+
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myRef = database.getReference(id.getText().toString());
+                myRef.setValue(name.getText().toString());
+            }
+        });
 
 
         // Read from the database
