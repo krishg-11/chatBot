@@ -4,19 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
+    tools:context=".signupActivity">
 
     <EditText
-        android:id="@+id/emailLogin"
+        android:id="@+id/emailSignup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="Email"
-        app:layout_constraintBottom_toTopOf="@id/passwordLogin"
+        app:layout_constraintBottom_toTopOf="@id/passwordSignup"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
     <EditText
-        android:id="@+id/passwordLogin"
+        android:id="@+id/passwordSignup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="Password"
@@ -25,23 +24,23 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-    <Button
-        android:id="@+id/buttonLogin"
+    <EditText
+        android:id="@+id/displayName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Log in"
-        app:layout_constraintTop_toBottomOf="@id/passwordLogin"
+        android:hint="Display Name"
+        app:layout_constraintBottom_toTopOf="@id/buttonSignup"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/passwordSignup" />
+    <Button
+        android:id="@+id/buttonSignup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign up"
+        app:layout_constraintTop_toBottomOf="@id/displayName"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"/>
 
-    <TextView
-        android:id="@+id/signupText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="placeholder text"
-        app:layout_constraintTop_toBottomOf="@id/buttonLogin"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
