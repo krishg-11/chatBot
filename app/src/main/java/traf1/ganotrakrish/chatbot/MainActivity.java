@@ -37,9 +37,6 @@ public class MainActivity extends AppCompatActivity {
 
     public EditText emailLogin;
     public EditText passwordLogin;
-    public EditText emailSignup;
-    public EditText passwordSignup;
-    public Button buttonSignup;
     public Button buttonLogin;
     DatabaseReference myRef;
     FirebaseDatabase database;
