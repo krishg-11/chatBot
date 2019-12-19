@@ -104,26 +104,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
-
-        // Read from the database
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                String value = dataSnapshot.getValue(String.class);
-                Log.d("Assert", "Value is: " + value);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError error) {
-                // Failed to read value
-                Log.w("Assert", "Failed to read value.", error.toException());
-            }
-        });
-
-
     }
 
     public void updateUI(FirebaseUser user){
@@ -133,12 +113,4 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra("PHOTOURL", user.getPhotoUrl());
         startActivity(intent);
     }
-
-//    @Override
-//    public void onStart() {
-//        super.onStart();
-//        // Check if user is signed in (non-null) and update UI accordingly.
-//        FirebaseUser currentUser = mAuth.getCurrentUser();
-//        updateUI(currentUser);
-//    }
 }

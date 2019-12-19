@@ -29,6 +29,7 @@
         android:tint="@android:color/white"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
+        android:layout_margin="5dp"
         app:fabSize="mini" />
 
 
